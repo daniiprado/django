@@ -1,0 +1,16 @@
+
+\.idea/
+
+\.DS_Store
+
+Shoppy/
+
+app/node_modules/
+
+app/db\.sqlite3
+
+app/app/__pycache__/
+
+app/products/__pycache__/
+
+app/resources/assets/img/
