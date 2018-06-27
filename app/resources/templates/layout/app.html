@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Learning DJango">
+    <meta name="author" content="Daniel Alejandro PRADO Mendoza">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+    <link rel="stylesheet" href="{% static "styles.bundle.css" %}">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+</head>
+<body>
+    <div id="app">
+        <vue-nav-bar></vue-nav-bar>
+
+        <main role="main" class="container">
+            {% block content %}{% endblock %}
+        </main>
+
+        <vue-footer></vue-footer>
+    </div>
+
+    <script src="{% static "scripts.bundle.js" %}"></script>
+</body>
+</html>

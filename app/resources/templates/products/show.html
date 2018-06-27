@@ -1,0 +1,20 @@
+{% extends "layout/app.html" %}
+{% block title %} {{ product.name }} {% endblock %}
+{% block content %}
+    <div class="row mt-xl-5">
+        <div class="col-md-6 offset-md-3">
+          <div class="card">
+            <div class="card-header">
+            {{ product.name }}
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ product.description }}</p>
+                <p class="card-text"><small class="text-muted">{{ product.category }}</small></p>
+                <a href="javascript:;" class="btn btn-primary">{{ product.price }}</a>
+                <a href="{% url 'products:index' %}" class="btn btn-primary">Regresar</a>
+            </div>
+            <img height="280" class="card-img-bottom" src="{{ product.image.url }}" alt="{{ product.name }}">
+          </div>
+        </div>
+    </div>
+{% endblock %}
