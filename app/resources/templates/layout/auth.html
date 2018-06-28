@@ -1,0 +1,21 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Learning DJango">
+    <meta name="author" content="Daniel Alejandro PRADO Mendoza">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+    <link rel="stylesheet" href="{% static "css/vendors.bundle.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/signin.bundle.min.css" %}">
+    <title>{% block title %}Login{% endblock %}</title>
+  </head>
+
+  <body class="text-center">
+
+  {% block content %}{% endblock %}
+
+    <script src="{% static "js/signin.bundle.min.js" %}"></script>
+  </body>
+</html>

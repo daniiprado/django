@@ -17,11 +17,18 @@ console.log(env);
  * Entry
  ***************/
 
-const entry = [
-    "./resources/assets/sass/app.scss",
-    "./resources/assets/js/app.js",
-    "./resources/assets/css/styles.css"
-];
+const entry = {
+    vendors: [
+        "./resources/assets/sass/app.scss",
+        "./resources/assets/js/app.js"
+    ],
+    sticky: [
+        "./resources/assets/css/styles.css"
+    ],
+    signin: [
+        "./resources/assets/css/signin.css"
+    ]
+};
 
 /***************
  * Output
@@ -93,21 +100,28 @@ const _module = {
 
 const optimization = {
     splitChunks: {
-        cacheGroups: {
-            styles: {
-                name: 'styles',
-                test: /\.css$/,
-                chunks: 'all',
-                enforce: true
-            },
-            common: {
-                test: /[\\/]node_modules[\\/]/,
-                name: "vendors",
-                chunks: 'all',
-                enforce: true
-            }
+      chunks: 'async',
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          chunks: 'all',
+          enforce: true
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
         }
+      }
     },
+
     minimizer: [
         new UglifyJsPlugin({
             cache: true,
