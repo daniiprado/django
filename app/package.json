@@ -4,8 +4,8 @@
   "description": "Learning Django and Vue",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "dev": "cross-env NODE_ENV=development webpack --progress --config ./webpack.config.js",
+    "prod": "cross-env NODE_ENV=production webpack --progress --hide-modules --config ./webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
@@ -14,7 +14,6 @@
     "@fortawesome/vue-fontawesome": "^0.1.0",
     "axios": "^0.18",
     "bootstrap": "^4.0.0",
-    "cross-env": "^5.1",
     "jquery": "^3.2",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.4",
@@ -22,16 +21,17 @@
     "vue": "^2.5.7"
   },
   "devDependencies": {
+    "autoprefixer": "^8.6.4",
+    "bundle-loader": "^0.5.6",
+    "html-loader": "^0.5.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
-    "postcss-loader": "^2.1.5",
-    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
-    "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "vue-dummy": "^1.1.1",
@@ -39,7 +39,11 @@
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "optimize-css-assets-webpack-plugin": "^4.0.3",
+    "path": "^0.12.7"
   },
   "author": "Daniel Alejandro Prado Mendoza",
   "license": "MIT"

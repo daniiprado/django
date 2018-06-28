@@ -7,7 +7,8 @@
     <meta name="description" content="Learning DJango">
     <meta name="author" content="Daniel Alejandro PRADO Mendoza">
     <link rel="icon" href="https://getbootstrap.com/favicon.ico">
-    <link rel="stylesheet" href="{% static "styles.bundle.css" %}">
+    <link rel="stylesheet" href="{% static "css/main.bundle.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/styles.bundle.min.css" %}">
     <title>{% block title %}Dashboard{% endblock %}</title>
 </head>
 <body>
@@ -21,6 +22,8 @@
         <vue-footer></vue-footer>
     </div>
 
-    <script src="{% static "scripts.bundle.js" %}"></script>
+    <script src="{% static "js/vendors.bundle.min.js" %}"></script>
+    <script src="{% static "js/styles.bundle.min.js" %}"></script>
+    <script src="{% static "js/main.bundle.min.js" %}"></script>
 </body>
 </html>
