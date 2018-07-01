@@ -1,0 +1,22 @@
+{% extends "layout/app.html" %}
+{% block title %} Products {% endblock %}
+{% block content %}
+
+    <div class="row mt-5">
+        {% for product in object_list %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="card-img-top" height="180" src="{{ product.image.url }}" alt="{{ product.name }}" />
+                    <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                        <small class="text-muted">{{ product.category }}</small>
+                        <p class="card-text">{{ product.decripion }}</p>
+                    <a href="javascript:;" class="btn btn-primary">$ {{ product.price }}</a>
+                    <a href="{% url 'products:show_c_b_v' product.pk  %}" class="btn btn-primary"> Ver </a>
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -3,6 +3,9 @@ from django.core import serializers
 from django.urls import reverse
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
+# Class Base View
+from django.views.generic import ListView, DetailView
+
 from .models import Product
 from .forms import ProductForm
 
@@ -45,3 +48,14 @@ def store(request):
             return HttpResponseRedirect(reverse('products:index'))
     else:
         return HttpResponseRedirect(reverse('products:index'))
+
+
+# Class Base View
+
+
+class ProductList(ListView):
+    model = Product
+
+
+class ProductDetail(DetailView):
+    model = Product
