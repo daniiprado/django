@@ -1,10 +1,14 @@
-from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.urls import reverse
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
 # Class Base View
 from django.views.generic import ListView, DetailView
+# Mixins y Decorators
+from django.contrib.auth.decorators import login_required
+from products.mixins import LoginRequiredMixin
+
 
 from .models import Product
 from .forms import ProductForm
@@ -15,7 +19,7 @@ from .forms import ProductForm
 def index(request):
     return render(request, 'products/index.html')
 
-
+@login_required()
 def show(request, id):
     product = get_object_or_404(Product, pk=id)
     template = loader.get_template('products/show.html')
@@ -30,6 +34,7 @@ def products(request):
     return HttpResponse(data, content_type='application/json', status=200)
 
 
+@login_required()
 def create(request):
     template = loader.get_template('products/create.html')
     form = ProductForm()
@@ -39,6 +44,7 @@ def create(request):
     return HttpResponse(template.render(context, request))
 
 
+@login_required()
 def store(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -57,5 +63,5 @@ class ProductList(ListView):
     model = Product
 
 
-class ProductDetail(DetailView):
+class ProductDetail(LoginRequiredMixin, DetailView):
     model = Product
