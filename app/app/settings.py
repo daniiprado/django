@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
     'products.apps.ProductsConfig',
     'clients.apps.ClientsConfig',
     'users.apps.UsersConfig',
@@ -80,6 +82,14 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'python',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    },
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
@@ -118,6 +128,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = '/'
+
+LOGIN_REDIRECT_URL = reverse_lazy('products:index')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
@@ -130,3 +143,4 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = 'resources/assets/img'
 MEDIA_URL = '/storage/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

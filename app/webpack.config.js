@@ -111,7 +111,7 @@ const optimization = {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
-          chunks: 'all',
+          // chunks: 'all',
           enforce: true
         },
         default: {
