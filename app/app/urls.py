@@ -24,9 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', include('products.urls', namespace='products')),
     path('', include('users.urls', namespace='users')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-urlpatterns = [
     path('api/v1/', include('api.urls', namespace='api')),
     path('api/v1/auth', include('rest_framework.urls', namespace='auth')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

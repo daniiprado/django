@@ -32,6 +32,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Django Material
+    'material',
+    'material.frontend',
+    'material.admin',
+    # Default
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
     # Third party
     'crispy_forms',
     'rest_framework',
@@ -40,13 +51,6 @@ INSTALLED_APPS = [
     'clients.apps.ClientsConfig',
     'users.apps.UsersConfig',
     'api.apps.ApiConfig',
-    # Default
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +69,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'resources/templates')
+            os.path.join(BASE_DIR, 'resources/templates'),
+            'django.template.context_processors.request',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
