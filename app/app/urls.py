@@ -18,8 +18,15 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework.authtoken import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', include('products.urls', namespace='products')),
-    path('', include('users.urls', namespace='users'))
+    path('', include('users.urls', namespace='users')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns = [
+    path('api/v1/', include('api.urls', namespace='api')),
+    path('api/v1/auth', include('rest_framework.urls', namespace='auth')),
+]

@@ -32,10 +32,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Third party
     'crispy_forms',
+    'rest_framework',
+    # Custom
     'products.apps.ProductsConfig',
     'clients.apps.ClientsConfig',
     'users.apps.UsersConfig',
+    'api.apps.ApiConfig',
+    # Default
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
